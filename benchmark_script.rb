@@ -84,11 +84,13 @@ num101 = Array.new(100) {rand(92)}
 num1000 = Array.new(1000) {rand(92)}
 num1001 = Array.new(1000) {rand(92)}
 num10000 = Array.new(10000) {rand(92)}
-num10001 = Array.new(10000) {rand(92)}
+# num10001 = Array.new(10000) {rand(92)}
 num100000 = Array.new(100000) {rand(92)}
-num100001 = Array.new(100000) {rand(92)}
+# num100001 = Array.new(100000) {rand(92)}
 num1000000 = Array.new(1000000) {rand(92)}
-num1000001 = Array.new(1000000) {rand(92)}
+# num1000001 = Array.new(1000000) {rand(92)}
+# num10000000 = Array.new(10000000) {rand(92)}
+# num10000001 = Array.new(10000000) {rand(92)}
 
 # puts "10"
 # puts Benchmark.measure { largest_contiguous_subsum1(num10) }
@@ -105,15 +107,43 @@ num1000001 = Array.new(1000000) {rand(92)}
 # puts "1000000"
 # puts Benchmark.measure { largest_contiguous_subsum1(num1000000) }
 
+# puts "10"
+# puts Benchmark.measure { largest_contiguous_subsum2(num10) }
+# puts "100"
+# puts Benchmark.measure { largest_contiguous_subsum2(num100) }
+# puts "1000"
+# puts Benchmark.measure { largest_contiguous_subsum2(num1000) }
+# puts "10000"
+# puts Benchmark.measure { largest_contiguous_subsum2(num10000) }
+# puts "100000"
+# puts Benchmark.measure { largest_contiguous_subsum2(num100000) }
+# puts "1000000"
+# puts Benchmark.measure { largest_contiguous_subsum2(num1000000) }
+
+#super linear.. but there is a lower bound
+
 puts "10"
-puts Benchmark.measure { largest_contiguous_subsum2(num10) }
+puts Benchmark.measure { lame_windowed_max_range(num10, num10.length / 2) }
 puts "100"
-puts Benchmark.measure { largest_contiguous_subsum2(num100) }
+puts Benchmark.measure { lame_windowed_max_range(num100, num100.length / 2) }
 puts "1000"
-puts Benchmark.measure { largest_contiguous_subsum2(num1000) }
+puts Benchmark.measure { lame_windowed_max_range(num1000, num1000.length / 2) }
 puts "10000"
-puts Benchmark.measure { largest_contiguous_subsum2(num10000) }
-puts "100000"
-puts Benchmark.measure { largest_contiguous_subsum2(num100000) }
-puts "1000000"
-puts Benchmark.measure { largest_contiguous_subsum2(num1000000) }
+puts Benchmark.measure { lame_windowed_max_range(num10000, num10000.length / 2) }
+# puts "100000"
+# puts Benchmark.measure { lame_windowed_max_range(num100000, num100000.length / 2) }
+# puts "1000000"
+# puts Benchmark.measure { lame_windowed_max_range(num1000000, num1000000.length / 2) }
+
+puts "10"
+puts Benchmark.measure { windowed_max_range(num10, num10.length / 2) }
+puts "100"
+puts Benchmark.measure { windowed_max_range(num100, num100.length / 2) }
+puts "1000"
+puts Benchmark.measure { windowed_max_range(num1000, num1000.length / 2) }
+puts "10000"
+puts Benchmark.measure { windowed_max_range(num10000, num10000.length / 2) }
+# puts "100000"
+# puts Benchmark.measure { windowed_max_range(num100000, num100000.length / 2) }
+# puts "1000000"
+# puts Benchmark.measure { windowed_max_range(num1000000, num1000000.length / 2) }
